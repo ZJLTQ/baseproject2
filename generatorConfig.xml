@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<!-- 注意这个路径，不能有中文、空格 -->
+	<classPathEntry
+        location="C:\Users\dc_zjl\.m2\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar" />
+        
+	<context id="DB2Tables" >
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/baseproject2" userId="baseproject2"
+			password="baseproject2" />
+			
+		<javaModelGenerator targetPackage="com.dcits.govsbu.southernbase.baseproject2.orm.model" 
+							targetProject="baseproject2" />
+		
+		<sqlMapGenerator targetPackage="com.dcits.govsbu.southernbase.baseproject2.orm.mapping" 
+						 targetProject="baseproject2" />
+		
+		<!-- type= ANNOTATEDMAPPER MIXEDMAPPER XMLMAPPER-->
+		<javaClientGenerator type="XMLMAPPER" 
+							 targetPackage="com.dcits.govsbu.southernbase.baseproject2.orm.mapper" 	
+							 targetProject="baseproject2" />  
+
+		<!-- <table schema="" tableName="account" domainObjectName="Account" 
+			enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" >
+		</table> -->
+		<!-- 配置需要将数据库表哥自动生成orm -->
+		<table schema="" tableName="user" domainObjectName="User" 
+			enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" >
+		</table>
+
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,40 @@
+server:
+    port: 8082 #值前面必须有空格
+    context-path: #不写应用根目录
+    sessionTimeout: 30
+
+logging:
+    level:
+        com.dcits.govsbu.southernbase: DEBUG
+    file:
+        d:\base\baseproject.log  #日志输出到文件  采用logging.file或者logging.path 日志文件每达到10M就会被轮换（分割）
+
+spring:
+    datasource:
+        name: baseproject2
+        url: jdbc:mysql://localhost:3306/baseproject2?useUnicode=true&characterEncoding=utf-8
+        username: baseproject2
+        password: baseproject2
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    mvc:
+        view:
+            prefix: /templates/
+            suffix: .ftl
+    freemarker:
+        cache: false
+        request-context-attribute: request
